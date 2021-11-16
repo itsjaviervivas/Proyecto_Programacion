@@ -71,26 +71,24 @@ def matrizmarkov(exp, variable):
 def regresionlineal(Matrix, datay):
     #convierte esa matriz en un array comun y corriente
     A = np.array(Matrix)
-    A
+    print(A)
 
     #halla la transpuesta de esa matriz
     At = np.transpose(A)
-    At
+    print(At)
 
     #Multiplica a A con At
-    AAt = np.dot(A,At)
-    AAt  
+    AAt = np.matmul(A,At)
+    print(AAt)  
 
     #halla la inversa de la matriz
 
-    Ai = np.linalg.inv(AAt)
-    Ai
-
-    #Multiplicamos nuevamente Ai con At
-    y1 = np.dot(Ai, At)
+    Ai = np.linalg.pinv(AAt)
+    print(Ai)
 
     #finalmente, la regresion sería
-    y = np.dot(y1, datay)
+    y = np.matmul(Ai,np.matmul(At, datay))
+    print(y)
     return y
 
 def estimacionErrores(datay, y):
@@ -111,9 +109,3 @@ def rsquared (y, datay, data):
     print(adr2)
     print(r2)
     return adr2 #revisar muy bien que esto tenga sentido alguno
-
-#Opcion 4 del set (Revisar opciones para graficar regresiones linelaes)
-def graficar(y):
-    #grafica:
-    grafica = plt.plot(y)
-    plt.show()
