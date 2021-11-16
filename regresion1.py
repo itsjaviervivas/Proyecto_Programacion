@@ -60,15 +60,12 @@ def matrizmarkov(exp, variable):
     #crear el vector de unos y los añade 
     for i in range(len(exp[1])):
         Matrix[i][0] = 1
-    Matrix
-
-    #completamos la matriz con los datos 
-    for i in range(variable):
-        for n in range(len(exp[1])):
-            for t in exp[i[1]]: #revisar esto
-                Matrix[n][1] = t
-    print(Matrix)            
+    for i in range(len(exp[1])):
+            Matrix[i][1]=exp[0][i]
+    for i in range(len(exp[1])):
+            Matrix[i][2]=exp[1][i]
     return Matrix
+
 
 def regresionlineal(Matrix, datay):
     #convierte esa matriz en un array comun y corriente
