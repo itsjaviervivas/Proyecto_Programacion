@@ -58,12 +58,13 @@ def matrizmarkov(exp, variable):
     Matrix = [[0 for x in range(j)] for y in range(r)] 
     print(Matrix)
     #crear el vector de unos y los añade 
-    for i in range(len(exp[1])):
-        Matrix[i][0] = 1
-    for i in range(len(exp[1])):
-            Matrix[i][1]=exp[0][i]
-    for i in range(len(exp[1])):
-            Matrix[i][2]=exp[1][i]
+        for i in range(len(exp[1])):
+            Matrix[i][0]= 1
+    n=0
+    for i in range(variable):
+        for i in range(len(exp[1])):
+            Matrix[i][0+n] = exp[0+n[i]
+        n+=1
     return Matrix
 
 
