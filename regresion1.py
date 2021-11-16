@@ -8,7 +8,6 @@ Created on Mon Oct 11 18:36:26 2021
 
 import pandas as pd
 import numpy as np
-import matplotlib as plt
 
 #revisar si es posible dejarla a un lado
 def pregunta():
@@ -71,20 +70,16 @@ def matrizmarkov(exp, variable):
 def regresionlineal(Matrix, datay):
     #convierte esa matriz en un array comun y corriente
     A = np.array(Matrix)
-    print(A)
 
     #halla la transpuesta de esa matriz
     At = np.transpose(A)
-    print(At)
 
     #Multiplica a A con At
     AAt = np.matmul(At,A)
-    print(AAt)  
 
     #halla la inversa de la matriz
 
     Ai = np.linalg.pinv(AAt)
-    print(Ai)
 
     #finalmente, la regresion sería
     y = np.matmul(Ai,np.matmul(At, datay))
