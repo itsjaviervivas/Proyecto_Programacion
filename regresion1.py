@@ -78,7 +78,7 @@ def regresionlineal(Matrix, datay):
     print(At)
 
     #Multiplica a A con At
-    AAt = np.matmul(A,At)
+    AAt = np.matmul(At,A)
     print(AAt)  
 
     #halla la inversa de la matriz
