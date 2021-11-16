@@ -56,15 +56,15 @@ def matrizmarkov(exp, variable):
     # Crea una matriz vacia
     j, r = variable+1, len(exp[1])
     Matrix = [[0 for x in range(j)] for y in range(r)] 
-    print(Matrix)
     #crear el vector de unos y los añade 
-        for i in range(len(exp[1])):
-            Matrix[i][0]= 1
+    for i in range(len(exp[1])):
+        Matrix[i][0]= 1
     n=0
     for i in range(variable):
         for i in range(len(exp[1])):
-            Matrix[i][0+n] = exp[0+n[i]
+            Matrix[i][1+n] = exp[0+n][i]
         n+=1
+    print(Matrix)
     return Matrix
 
 
@@ -98,17 +98,19 @@ def estimacionErrores(datay, y):
     u = np.subtract(datay, y) 
     return u
     
-def rsquared (datax, datay, df):
+def rsquared (y, datay, data):
     """Va a hallar el R^2. Recibe la variable dependiente y las independientes."""
     #En si r^2 lo podemos definir como R^2= 1-SSR/SST
-    df = len(datay)-len(datax)-1 # los grados de libertad
-    yhat = np.p(datax)                         #lo usaremos para que nos haga el fit
-    ybar = np.sum(datay)/len(datay)  #metodo provisonal, mirar que tal funciona
+    df = len(datay)-len(y)-1 # los grados de libertad
+    yhat = np.p(y)                         #lo usaremos para que nos haga el fit
+    ybar = np.sum(y)/len(y)  #metodo provisonal, mirar que tal funciona
     ssr = np.sum((yhat-ybar)**2)   # a ssr lo podemos definir como la sumatoria de errores al cuadrado
     sst = np.sum((datay-ybar)**2)     # a sst lo podemos definir como sse + ssr
     r2 = 1 - (ssr /sst)
     adr2 = 1-(1-r2)*(len(datay-1))/(df) #el r^2 ajustado
-    return r2, adr2 #revisar muy bien que esto tenga sentido alguno
+    print(adr2)
+    print(r2)
+    return adr2 #revisar muy bien que esto tenga sentido alguno
 
 #Opcion 4 del set (Revisar opciones para graficar regresiones linelaes)
 def graficar(y):
